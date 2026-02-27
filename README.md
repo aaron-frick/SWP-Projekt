@@ -28,8 +28,8 @@ Ziel ist eine saubere Trennung zwischen:
 
 # Projektmanagment
 
-- Notion: https://www.notion.so/SWP-Projekt-30d317fe02fd80b8b213c97339d870a7?source=copy_link
-
+- Notion: https://material-roadway-99c.notion.site/SWP-Projekt-30d317fe02fd80b8b213c97339d870a7?source=copy_link
+  
 # 🎯 Projektziel
 
 Dieses Projekt implementiert eine produktive Headless-Commerce-Struktur mit folgenden Kernzielen:
@@ -299,5 +299,6 @@ Unterstützt:
 # 📄 Lizenz
 
 Projektintern definieren.
+
 
 
