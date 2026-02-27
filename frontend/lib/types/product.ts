@@ -9,6 +9,7 @@ export interface Product {
   price: number | null;
   availability: string | null;
   images: string[];
+  status: string | null;
 }
 
 /**

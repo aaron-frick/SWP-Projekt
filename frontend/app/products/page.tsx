@@ -1,22 +1,42 @@
+import { Suspense } from "react";
 import { productService } from "@/lib/api/product-service";
+import type { Product } from "@/lib/types/product";
 import { ProductCard } from "@/components/product-card";
 import { GlassCard } from "@/components/glass-card";
+import { SearchBar } from "@/components/search-bar";
+import { AvailabilityFilter } from "@/components/availability-filter";
 
 /**
  * Product listing page.
  * Server component – fetches products from the backend API.
+ * Supports search via ?search= and availability filter via ?availability=.
  */
-export default async function ProductsPage() {
-  let products;
+export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ search?: string; availability?: string }>;
+}) {
+  const { search, availability } = await searchParams;
+
+  let allProducts: Product[] = [];
   let error: string | null = null;
 
   try {
-    products = await productService.getAll();
+    allProducts = await productService.getAll({ search });
   } catch (err) {
     error =
       err instanceof Error ? err.message : "Produkte konnten nicht geladen werden.";
-    products = [];
   }
+
+  // Apply availability filter locally from already-fetched products
+  const products = availability
+    ? allProducts.filter((p) => p.availability === availability)
+    : allProducts;
+
+  // Collect unique availability values for filter buttons
+  const availabilityOptions = [
+    ...new Set(allProducts.map((p) => p.availability).filter(Boolean)),
+  ] as string[];
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12">
@@ -32,6 +52,23 @@ export default async function ProductsPage() {
         </p>
       </div>
 
+      {/* Search & Filter */}
+      {!error && (
+        <div className="mb-8 space-y-4 animate-fade-in-up">
+          <Suspense>
+            <SearchBar defaultValue={search} />
+          </Suspense>
+          {availabilityOptions.length > 0 && (
+            <Suspense>
+              <AvailabilityFilter
+                options={availabilityOptions}
+                current={availability}
+              />
+            </Suspense>
+          )}
+        </div>
+      )}
+
       {/* Error State */}
       {error && (
         <GlassCard className="p-8 text-center">
@@ -42,10 +79,23 @@ export default async function ProductsPage() {
         </GlassCard>
       )}
 
+      {/* Result count when filtering */}
+      {!error && (search || availability) && (
+        <p className="mb-4 text-sm text-white/40">
+          {products.length} Produkt{products.length !== 1 ? "e" : ""} gefunden
+          {search && ` für „${search}"`}
+          {availability && ` · ${availability}`}
+        </p>
+      )}
+
       {/* Empty State */}
       {!error && products.length === 0 && (
         <GlassCard className="p-12 text-center">
-          <p className="text-xl text-white/50">Keine Produkte gefunden.</p>
+          <p className="text-xl text-white/50">
+            {search || availability
+              ? "Keine Produkte für diese Suche gefunden."
+              : "Keine Produkte gefunden."}
+          </p>
         </GlassCard>
       )}
 

@@ -129,6 +129,7 @@ function mapProduct(item) {
   const price = normalizePrice(item?.price ?? item?.amount ?? item?.cost);
   const availability =
     item?.availability ?? item?.stock_status ?? item?.stock ?? null;
+  const status = item?.status ?? null;
 
   return {
     id,
@@ -138,7 +139,14 @@ function mapProduct(item) {
     price,
     availability: availability ? String(availability) : null,
     images: extractImageUrls(item),
+    status: status ? String(status) : null,
   };
+}
+
+function mergePublishFilter(userFilter) {
+  const publishFilter = { status: { _eq: "published" } };
+  if (!userFilter) return publishFilter;
+  return { _and: [publishFilter, userFilter] };
 }
 
 function mapErrorToStatus(error) {
@@ -238,7 +246,7 @@ app.get("/api/products", async (req, res) => {
   }
 
   const result = await productsApi.listProducts({
-    filter,
+    filter: mergePublishFilter(filter),
     fields: parseCsv(req.query.fields),
     sort: parseCsv(req.query.sort),
     limit: parseNumber(req.query.limit),
@@ -261,7 +269,7 @@ app.get("/api/products/:slug", async (req, res) => {
   const slug = req.params.slug;
 
   const result = await productsApi.queryProducts({
-    filter: { slug: { _eq: slug } },
+    filter: mergePublishFilter({ slug: { _eq: slug } }),
     limit: 1,
   });
 

@@ -19,8 +19,14 @@ class ProductService {
    * Fetches all products from the backend API.
    * Uses Next.js fetch with revalidation for ISR caching.
    */
-  async getAll(): Promise<Product[]> {
-    const response = await fetch(`${this.baseUrl}/api/products`, {
+  async getAll(options?: { search?: string }): Promise<Product[]> {
+    const params = new URLSearchParams();
+    if (options?.search) params.set("search", options.search);
+
+    const query = params.toString();
+    const url = `${this.baseUrl}/api/products${query ? `?${query}` : ""}`;
+
+    const response = await fetch(url, {
       next: { revalidate: 60 },
     });
 
