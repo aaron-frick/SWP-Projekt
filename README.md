@@ -28,7 +28,7 @@ Ziel ist eine saubere Trennung zwischen:
 
 # Projektmanagment
 
-- Notion: https://material-roadway-99c.notion.site/SWP-Projekt-30d317fe02fd80b8b213c97339d870a7?source=copy_link
+- Notion: https://material-roadway-99c.notion.site/ScrumBoard-319317fe02fd80c192eac76e7b7b9416?source=copy_link
   
 # 🎯 Projektziel
 
@@ -299,6 +299,7 @@ Unterstützt:
 # 📄 Lizenz
 
 Projektintern definieren.
+
 
 
 
