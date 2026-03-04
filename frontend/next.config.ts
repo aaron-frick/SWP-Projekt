@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
         port: "4000",
       },
     ],
+    dangerouslyAllowLocalIP: true,
   },
 };
 
