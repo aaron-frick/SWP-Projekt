@@ -79,7 +79,8 @@ export function createProductsApi(client, { collection = "Products" } = {}) {
     }
 
     const { signal, fields } = options;
-    const query = fields ? { fields: toCommaSeparated(fields) } : undefined;
+    const resolvedFields = fields || "*, products_images.directus_files_id.*";
+    const query = { fields: toCommaSeparated(resolvedFields) };
 
     return client.get(`${collectionPath}/${encodeURIComponent(productId)}`, {
       query,

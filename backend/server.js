@@ -122,7 +122,7 @@ function extractImageAlt(entry) {
 }
 
 function extractImageUrls(item) {
-  const candidates = [item?.images, item?.image, item?.gallery].filter(Boolean);
+  const candidates = [item?.products_images].filter(Boolean);
   const assets = [];
 
   candidates.forEach((candidate) => {
@@ -302,7 +302,7 @@ app.get("/api/products", async (req, res) => {
   // Directus filter permissions may block _icontains queries even when read access is granted.
   const result = await productsApi.listProducts({
     filter: mergePublishFilter(filter),
-    fields: parseCsv(req.query.fields),
+    fields: parseCsv(req.query.fields) || "*, products_images.directus_files_id.*",
     sort: parseCsv(req.query.sort),
     limit: searchTerm ? undefined : parseNumber(req.query.limit),
     page: searchTerm ? undefined : parseNumber(req.query.page),

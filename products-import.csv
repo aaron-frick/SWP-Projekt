@@ -1,16 +1,51 @@
 title,description,price,image,slug,availability,status,sku
-Vitamin C 1000mg,"Hochdosiertes Vitamin C zur Stärkung des Immunsystems. 90 Tabletten pro Packung.",12.99,,vitamin-c-1000mg,in_stock,published,SKU-001
-Omega-3 Fischöl,"Hochwertiges Omega-3 aus nachhaltigem Fischfang. Unterstützt Herz und Gehirn. 60 Kapseln.",18.49,,omega-3-fischoel,in_stock,published,SKU-002
-Magnesium 400mg,"Magnesium für Muskeln und Nerven. Ideal bei Krämpfen und Stress. 120 Tabletten.",9.99,,magnesium-400mg,in_stock,published,SKU-003
-Vitamin D3 2000 IE,"Vitamin D3 für Knochen, Immunsystem und Wohlbefinden. 180 Kapseln.",14.99,,vitamin-d3-2000ie,in_stock,published,SKU-004
-Zink 25mg,"Zink unterstützt das Immunsystem und die Hautgesundheit. 100 Tabletten.",7.49,,zink-25mg,in_stock,published,SKU-005
-Probiotika Komplex,"10 Bakterienstämme für eine gesunde Darmflora. 30 Kapseln.",22.99,,probiotika-komplex,in_stock,published,SKU-006
-Kollagen Pulver,"Hydrolysiertes Kollagen für Haut, Haare und Gelenke. 300g Pulver.",29.99,,kollagen-pulver,low_stock,published,SKU-007
-Ashwagandha 500mg,"Adaptogenes Kraut zur Stressreduktion und Entspannung. 60 Kapseln.",16.99,,ashwagandha-500mg,in_stock,published,SKU-008
-Curcuma & Pfeffer,"Curcumin mit Piperin für maximale Bioverfügbarkeit. Entzündungshemmend. 90 Kapseln.",13.49,,curcuma-pfeffer,in_stock,published,SKU-009
-B-Komplex,"Alle 8 B-Vitamine in einer Kapsel. Für Energie und Nervensystem. 60 Kapseln.",11.99,,b-komplex,in_stock,published,SKU-010
-Eisen 14mg,"Gut verträgliches Eisen-Bisglycinate. Ideal bei Eisenmangel. 90 Kapseln.",8.99,,eisen-14mg,in_stock,published,SKU-011
-Melatonin 1mg,"Natürliches Einschlafhilfe für erholsamen Schlaf. 60 Tabletten.",6.99,,melatonin-1mg,in_stock,published,SKU-012
-Coenzym Q10 100mg,"Q10 für Zellenergie und Herzgesundheit. 60 Kapseln.",24.99,,coenzym-q10-100mg,low_stock,published,SKU-013
-Spirulina Tabletten,"Nährstoffreiches Superfood aus Mikroalgen. 200 Tabletten.",15.99,,spirulina-tabletten,in_stock,published,SKU-014
-Whey Protein Vanilla,"Hochwertiges Molkenprotein mit Vanillegeschmack. 1kg Beutel.",34.99,,whey-protein-vanilla,in_stock,published,SKU-015
+Vitamin C 1000mg,"Hochdosiertes Vitamin C zur Stärkung des Immunsystems und Abwehrkräfte. 90 Tabletten.",12.99,,vitamin-c-1000mg,in_stock,published,SKU-001
+Omega-3 Fischöl,"Hochwertiges Omega-3 aus nachhaltigem Fischfang. Unterstützt Herz, Gehirn und Augen. 60 Kapseln.",18.49,,omega-3-fischoel,in_stock,published,SKU-002
+Magnesium 400mg,"Magnesium-Bisglycinat für Muskeln, Nerven und Schlaf. Ideal bei Krämpfen. 120 Tabletten.",9.99,,magnesium-400mg,in_stock,published,SKU-003
+Vitamin D3 2000 IE,"Vitamin D3 in Olivenöl für maximale Aufnahme. Für Knochen und Immunsystem. 180 Kapseln.",14.99,,vitamin-d3-2000ie,in_stock,published,SKU-004
+Zink 25mg,"Zink-Bisglycinat für Immunsystem, Haut und Haare. Magenschonend. 100 Tabletten.",7.49,,zink-25mg,in_stock,published,SKU-005
+Probiotika Komplex,"10 Bakterienstämme mit 10 Milliarden KBE für eine gesunde Darmflora. 30 Kapseln.",22.99,,probiotika-komplex,in_stock,published,SKU-006
+Kollagen Pulver,"Hydrolysiertes Kollagen Typ I & III für Haut, Haare und Gelenke. 300g Pulver.",29.99,,kollagen-pulver,low_stock,published,SKU-007
+Ashwagandha 500mg,"KSM-66 Ashwagandha-Extrakt zur Stressreduktion und Verbesserung der Schlafqualität. 60 Kapseln.",16.99,,ashwagandha-500mg,in_stock,published,SKU-008
+Curcuma & Pfeffer,"Curcumin mit 95% Curcuminoiden und Piperin für maximale Bioverfügbarkeit. 90 Kapseln.",13.49,,curcuma-pfeffer,in_stock,published,SKU-009
+B-Komplex Forte,"Alle 8 B-Vitamine in aktiver Form für Energie, Nerven und Konzentration. 60 Kapseln.",11.99,,b-komplex-forte,in_stock,published,SKU-010
+Eisen 14mg,"Eisen-Bisglycinat – gut verträglich ohne Magenbeschwerden. Für Blutbildung. 90 Kapseln.",8.99,,eisen-14mg,in_stock,published,SKU-011
+Melatonin 1mg,"Pflanzliches Melatonin für schnelleres Einschlafen und erholsamen Schlaf. 60 Tabletten.",6.99,,melatonin-1mg,in_stock,published,SKU-012
+Coenzym Q10 100mg,"Ubichinon Q10 für Zellenergie, Herzgesundheit und Anti-Aging. 60 Kapseln.",24.99,,coenzym-q10-100mg,low_stock,published,SKU-013
+Spirulina Tabletten,"Reines Spirulina-Pulver in Tablettenform – reich an Proteinen und Chlorophyll. 200 Tabletten.",15.99,,spirulina-tabletten,in_stock,published,SKU-014
+Whey Protein Vanilla,"Premium Molkenprotein-Isolat mit Vanillegeschmack – 25g Protein pro Portion. 1kg Beutel.",34.99,,whey-protein-vanilla,in_stock,published,SKU-015
+Vitamin K2 200µg,"Vitamin K2 MK-7 aus Natto für Knochen und Gefäße. Ideal mit D3 kombinieren. 60 Kapseln.",13.99,,vitamin-k2-200mcg,in_stock,published,SKU-016
+Selen 200µg,"Organisches Selenmethionin für Schilddrüse, Immunabwehr und Antioxidation. 90 Tabletten.",9.49,,selen-200mcg,in_stock,published,SKU-017
+Biotin 10000µg,"Hochdosiertes Biotin für starkes Haarwachstum, feste Nägel und klare Haut. 90 Tabletten.",10.99,,biotin-10000mcg,in_stock,published,SKU-018
+Calcium 600mg,"Calciumcarbonat mit Vitamin D3 und K2 für starke Knochen und Zähne. 120 Tabletten.",8.49,,calcium-600mg,in_stock,published,SKU-019
+Vitamin E 400 IE,"Natürliches d-Alpha-Tocopherol als starkes Antioxidans für Zellschutz. 60 Kapseln.",11.49,,vitamin-e-400ie,in_stock,published,SKU-020
+Folsäure 800µg,"Aktive Folsäure als Methylfolat – besonders bioverfügbar. Für Zellwachstum. 90 Kapseln.",7.99,,folsaeure-800mcg,in_stock,published,SKU-021
+Jod 200µg,"Kaliumjodid für normale Schilddrüsenfunktion und Energiestoffwechsel. 100 Tabletten.",5.99,,jod-200mcg,in_stock,published,SKU-022
+Alpha-Liponsäure 600mg,"Kraftvolles Antioxidans für Zellschutz, Blutzucker und Leberfunktion. 60 Kapseln.",19.99,,alpha-liponsaeure-600mg,in_stock,published,SKU-023
+Rhodiola Rosea 400mg,"Adaptogene Rosenwurz gegen Erschöpfung, mentalen Stress und Burnout. 60 Kapseln.",17.49,,rhodiola-rosea-400mg,in_stock,published,SKU-024
+Ginkgo Biloba 120mg,"Standardisierter Ginkgoextrakt für Durchblutung, Konzentration und Gedächtnis. 60 Tabletten.",12.49,,ginkgo-biloba-120mg,in_stock,published,SKU-025
+L-Glutamin 5000mg,"Freie Aminosäure für Muskelregeneration, Darmgesundheit und Immunsystem. 500g Pulver.",27.99,,l-glutamin-5000mg,in_stock,published,SKU-026
+BCAA 2:1:1,"Leucin, Isoleucin und Valin im optimalen Verhältnis für Muskelaufbau. 200 Kapseln.",22.49,,bcaa-2-1-1,in_stock,published,SKU-027
+Kreatin Monohydrat,"Mikronisiertes Kreatin für mehr Kraft, Ausdauer und schnellere Regeneration. 500g Pulver.",19.49,,kreatin-monohydrat,in_stock,published,SKU-028
+L-Carnitin 1000mg,"L-Carnitin Tartrat für Fettstoffwechsel, Energie und Herzgesundheit. 60 Kapseln.",15.49,,l-carnitin-1000mg,low_stock,published,SKU-029
+Chrom 200µg,"Organisches Chrompicolinat für stabilen Blutzucker und weniger Heißhunger. 100 Tabletten.",6.49,,chrom-200mcg,in_stock,published,SKU-030
+Hyaluronsäure 200mg,"Hochmolekulare Hyaluronsäure für Gelenke, Haut und Augen. 60 Kapseln.",21.99,,hyaluronsaeure-200mg,low_stock,published,SKU-031
+MSM 1000mg,"Organischer Schwefel für Gelenke, Knorpel, Haut und Entgiftung. 120 Tabletten.",14.99,,msm-1000mg,in_stock,published,SKU-032
+Glucosamin 750mg,"Glucosamin-Sulfat für gesunde Gelenke, Knorpelerhalt und Mobilität. 90 Tabletten.",16.49,,glucosamin-750mg,in_stock,published,SKU-033
+Grüntee-Extrakt 500mg,"EGCG-reicher Grünteeextrakt als Antioxidans und natürlicher Stoffwechsel-Booster. 60 Kapseln.",13.49,,gruentee-extrakt-500mg,in_stock,published,SKU-034
+Resveratrol 250mg,"Trans-Resveratrol aus Japanischem Knöterich für Zellschutz und Langlebigkeit. 60 Kapseln.",23.99,,resveratrol-250mg,in_stock,published,SKU-035
+NAC N-Acetylcystein 600mg,"Glutathion-Vorläufer für Leber, Lunge, Entgiftung und Immunsystem. 60 Kapseln.",16.99,,nac-600mg,in_stock,published,SKU-036
+5-HTP 100mg,"Natürlicher Serotonin-Vorläufer für Stimmung, Schlaf und Appetitregulation. 60 Kapseln.",17.99,,5-htp-100mg,low_stock,published,SKU-037
+GABA 500mg,"Gamma-Aminobuttersäure zur Entspannung, Stressabbau und Schlafförderung. 60 Kapseln.",14.99,,gaba-500mg,in_stock,published,SKU-038
+Mariendistel 600mg,"Silymarin-Extrakt mit 80% Wirkstoffgehalt zum Schutz und Regeneration der Leber. 60 Kapseln.",12.99,,mariendistel-600mg,in_stock,published,SKU-039
+Artischocken-Extrakt 500mg,"Fördert Verdauung, Gallenfluss und senkt natürlich den Cholesterinspiegel. 60 Kapseln.",11.49,,artischocken-extrakt-500mg,in_stock,published,SKU-040
+Whey Protein Schoko,"Premium Molkenprotein-Isolat mit Schokoladengeschmack – 25g Protein pro Portion. 1kg Beutel.",34.99,,whey-protein-schoko,in_stock,published,SKU-041
+Casein Protein Vanilla,"Langsam verdauliches Nachtprotein für kontinuierliche Aminosäureversorgung. 1kg Beutel.",36.99,,casein-protein-vanilla,in_stock,published,SKU-042
+Veganes Protein Erdbeer,"Pflanzliche Proteinmischung aus Erbse und Reis mit Erdbeergeschmack. 800g Beutel.",32.99,,veganes-protein-erdbeer,in_stock,published,SKU-043
+Pre-Workout Boost,"Koffein, Beta-Alanin und Citrullin für maximale Leistung im Training. 300g Pulver.",28.99,,pre-workout-boost,in_stock,published,SKU-044
+Elektrolyt-Pulver,"Natrium, Kalium, Magnesium und Calcium für optimale Hydration. 400g Pulver.",19.99,,elektrolyt-pulver,in_stock,published,SKU-045
+Vitamin A 5000 IE,"Retinol für Sehkraft, Immunsystem und Hautgesundheit. 90 Weichkapseln.",8.99,,vitamin-a-5000ie,in_stock,published,SKU-046
+Pantothensäure B5 500mg,"Vitamin B5 für Energiestoffwechsel, Hormone und Wundheilung. 90 Kapseln.",9.99,,pantothensaeure-b5-500mg,in_stock,published,SKU-047
+Inositol 500mg,"Myo-Inositol für hormonelle Balance, PCOS und Nervensystem. 90 Kapseln.",14.49,,inositol-500mg,low_stock,published,SKU-048
+Lutein & Zeaxanthin,"Augen-Nährstoffe zum Schutz vor Blaulicht und altersbedingt. Makulaformel. 60 Kapseln.",18.99,,lutein-zeaxanthin,in_stock,published,SKU-049
+Schwarzkümmelöl 500mg,"Kaltgepresstes Nigella Sativa Öl – für Allergie, Immunsystem und Entzündungen. 60 Kapseln.",15.99,,schwarzkuemeloel-500mg,in_stock,published,SKU-050

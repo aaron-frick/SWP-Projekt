@@ -55,14 +55,12 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               {product.name}
             </h1>
 
-            {product.availability && (
-              <AvailabilityBadge availability={product.availability} />
-            )}
           </div>
 
-          {/* Price */}
-          <div>
+          {/* Price & Availability */}
+          <div className="flex items-center gap-4 flex-wrap">
             <PriceTag price={product.price} size="lg" />
+            <AvailabilityBadge availability={product.availability ?? "in_stock"} />
           </div>
 
           {/* Description */}

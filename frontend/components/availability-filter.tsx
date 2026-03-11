@@ -34,20 +34,28 @@ export function AvailabilityFilter({ options, current }: AvailabilityFilterProps
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span className="text-sm text-gray-400">Filter:</span>
-      {options.map((opt) => (
-        <button
-          key={opt}
-          onClick={() => handleClick(opt)}
-          disabled={isPending}
-          className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-            current === opt
-              ? "bg-gray-900 text-white"
-              : "glass text-gray-600 hover:text-gray-900"
-          }`}
-        >
-          {opt}
-        </button>
-      ))}
+      {options.map((opt) => {
+        const labels: Record<string, string> = {
+          in_stock: "Auf Lager",
+          low_stock: "Wenig Lager",
+          out_of_stock: "Nicht verfügbar",
+        };
+        const label = labels[opt] ?? opt;
+        return (
+          <button
+            key={opt}
+            onClick={() => handleClick(opt)}
+            disabled={isPending}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
+              current === opt
+                ? "bg-gray-900 text-white"
+                : "glass text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            {label}
+          </button>
+        );
+      })}
       {current && (
         <button
           onClick={() => handleClick(current)}
