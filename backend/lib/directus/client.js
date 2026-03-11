@@ -20,7 +20,17 @@ function appendQueryParam(searchParams, key, value) {
       return;
     }
 
-    searchParams.append(key, value.join(","));
+    // Arrays of objects must be indexed (e.g. filter[_or][0][name][_icontains]=x)
+    // so Directus can parse them correctly. Primitive arrays (fields, sort) are
+    // joined as comma-separated strings.
+    const hasObjects = value.some(isPlainObject);
+    if (hasObjects) {
+      value.forEach((item, index) => {
+        appendQueryParam(searchParams, `${key}[${index}]`, item);
+      });
+    } else {
+      searchParams.append(key, value.join(","));
+    }
     return;
   }
 

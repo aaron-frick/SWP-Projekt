@@ -5,6 +5,7 @@ import { GlassCard } from "@/components/glass-card";
 import { ImageGallery } from "@/components/image-gallery";
 import { PriceTag } from "@/components/price-tag";
 import { AvailabilityBadge } from "@/components/availability-badge";
+import { AddToCartButton } from "@/components/add-to-cart-button";
 
 interface ProductDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -76,6 +77,15 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               />
             </GlassCard>
           )}
+
+          {/* Add to Cart */}
+          <AddToCartButton
+            product={{
+              slug: product.slug,
+              name: product.name,
+              price: typeof product.price === "number" ? product.price : parseFloat(product.price) || 0,
+            }}
+          />
 
           {/* Back link */}
           <Link

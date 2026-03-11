@@ -180,6 +180,25 @@ function mergePublishFilter(userFilter) {
   return userFilter;
 }
 
+/**
+ * Builds a case-insensitive Directus filter for name/SKU search.
+ * Using _icontains instead of the global Directus `search` param makes
+ * the search deterministic and independent of Directus field configuration.
+ */
+function buildSearchFilter(search) {
+  if (!search || typeof search !== "string") return undefined;
+  const term = search.trim();
+  if (!term) return undefined;
+  return { _or: [{ name: { _icontains: term } }, { sku: { _icontains: term } }] };
+}
+
+function mergeFilters(a, b) {
+  if (!a && !b) return undefined;
+  if (!a) return b;
+  if (!b) return a;
+  return { _and: [a, b] };
+}
+
 function mapErrorToStatus(error) {
   if (error?.type === "validation") {
     return 400;
@@ -276,13 +295,16 @@ app.get("/api/products", async (req, res) => {
     return;
   }
 
+  const searchTerm = typeof req.query.search === "string" ? req.query.search : undefined;
+  const searchFilter = buildSearchFilter(searchTerm);
+  const combinedFilter = mergeFilters(mergePublishFilter(filter), searchFilter);
+
   const result = await productsApi.listProducts({
-    filter: mergePublishFilter(filter),
+    filter: combinedFilter,
     fields: parseCsv(req.query.fields),
     sort: parseCsv(req.query.sort),
     limit: parseNumber(req.query.limit),
     page: parseNumber(req.query.page),
-    search: typeof req.query.search === "string" ? req.query.search : undefined,
   });
 
   if (!result.ok) {

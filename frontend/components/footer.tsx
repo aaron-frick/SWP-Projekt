@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           {/* Brand */}
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-gray-700">GoonerShop</span>
+            <span className="text-sm font-semibold text-gray-700">Healthshop</span>
             <span className="text-gray-300">·</span>
             <span className="text-xs text-gray-400">
               © {new Date().getFullYear()} – Schulprojekt HTL Dornbirn

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Providers } from "@/components/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GoonerShop",
-  description: "GoonerShop – Dein Online Shop",
+  title: "Healthshop",
+  description: "Healthshop – Dein Online Shop",
 };
 
 export default function RootLayout({
@@ -37,9 +38,11 @@ export default function RootLayout({
           <div className="absolute top-2/3 left-1/4 w-[400px] h-[400px] rounded-full bg-cyan-200/20 blur-3xl animate-blob [animation-delay:12s]" />
         </div>
 
-        <Navbar />
-        <main className="pt-24">{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="pt-24">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

@@ -37,7 +37,7 @@ export default function DatenschutzPage() {
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:
           </p>
           <div className="pl-4 border-l-2 border-gray-200 space-y-0.5 text-gray-700">
-            <p className="font-medium">GoonerShop – Schulprojekt HTL Dornbirn</p>
+            <p className="font-medium">Healthshop – Schulprojekt HTL Dornbirn</p>
             <p>Musterstraße 1, 6850 Dornbirn, Österreich</p>
             <p>E-Mail: <span className="italic">kontakt@goonershop.example</span></p>
           </div>
@@ -119,7 +119,7 @@ export default function DatenschutzPage() {
             6. Aktualität dieser Erklärung
           </h2>
           <p>
-            Diese Datenschutzerklärung gilt für das Schulprojekt GoonerShop (HTL Dornbirn, Schuljahr
+            Diese Datenschutzerklärung gilt für das Schulprojekt Healthshop (HTL Dornbirn, Schuljahr
             2025/26) und hat keinen Anspruch auf rechtliche Vollständigkeit.
             Stand: {new Date().toLocaleDateString("de-AT", { year: "numeric", month: "long" })}.
           </p>

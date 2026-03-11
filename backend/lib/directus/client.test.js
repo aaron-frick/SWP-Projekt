@@ -139,6 +139,92 @@ test("returns config error when base URL is missing", async () => {
   assert.equal(result.error.type, "config");
 });
 
+test("search by name sends _icontains filter on name field", async () => {
+  let capturedUrl = "";
+
+  const fetchFn = async (url) => {
+    capturedUrl = url;
+    return createJsonResponse({ body: { data: [{ id: 1, name: "Vitamin C" }] } });
+  };
+
+  const client = createDirectusClient({ baseUrl: "http://10.115.3.12:8055", fetchFn });
+  const productsApi = createProductsApi(client);
+
+  const result = await productsApi.listProducts({
+    filter: { _or: [{ name: { _icontains: "vitamin" } }, { sku: { _icontains: "vitamin" } }] },
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.data.length, 1);
+  // Directus expects indexed array items: filter[_or][0][name][_icontains]=vitamin
+  assert.ok(
+    capturedUrl.includes("_icontains%5D=vitamin"),
+    "URL should contain percent-encoded _icontains operator with the search term"
+  );
+  assert.ok(
+    capturedUrl.includes("_or%5D%5B0%5D"),
+    "URL should use indexed _or array syntax"
+  );
+});
+
+test("search by SKU sends _icontains filter on sku field", async () => {
+  let capturedUrl = "";
+
+  const fetchFn = async (url) => {
+    capturedUrl = url;
+    return createJsonResponse({ body: { data: [{ id: 2, name: "Omega 3", sku: "OMG-001" }] } });
+  };
+
+  const client = createDirectusClient({ baseUrl: "http://10.115.3.12:8055", fetchFn });
+  const productsApi = createProductsApi(client);
+
+  const result = await productsApi.listProducts({
+    filter: { _or: [{ name: { _icontains: "OMG-001" } }, { sku: { _icontains: "OMG-001" } }] },
+  });
+
+  assert.equal(result.ok, true);
+  // _or[1] corresponds to the sku filter entry
+  assert.ok(
+    capturedUrl.includes("_or%5D%5B1%5D%5Bsku%5D"),
+    "URL should include sku in the second _or entry"
+  );
+});
+
+test("search with no results returns empty array", async () => {
+  const fetchFn = async () =>
+    createJsonResponse({ body: { data: [] } });
+
+  const client = createDirectusClient({ baseUrl: "http://10.115.3.12:8055", fetchFn });
+  const productsApi = createProductsApi(client);
+
+  const result = await productsApi.listProducts({
+    filter: { _or: [{ name: { _icontains: "xyznotfound" } }, { sku: { _icontains: "xyznotfound" } }] },
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.data.length, 0);
+});
+
+test("search with special characters does not throw", async () => {
+  let capturedUrl = "";
+
+  const fetchFn = async (url) => {
+    capturedUrl = url;
+    return createJsonResponse({ body: { data: [] } });
+  };
+
+  const client = createDirectusClient({ baseUrl: "http://10.115.3.12:8055", fetchFn });
+  const productsApi = createProductsApi(client);
+
+  const specialChars = "café & 100% <test>";
+  const result = await productsApi.listProducts({
+    filter: { _or: [{ name: { _icontains: specialChars } }, { sku: { _icontains: specialChars } }] },
+  });
+
+  assert.equal(result.ok, true);
+  assert.ok(capturedUrl.length > 0, "URL should be built without throwing");
+});
+
 test("graphql method exists and uses /graphql endpoint", async () => {
   let capturedUrl = "";
 

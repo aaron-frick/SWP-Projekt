@@ -27,7 +27,7 @@ export default function HomePage() {
 
         {/* Headline */}
         <h1 className="text-6xl font-bold tracking-tight text-gray-900 sm:text-8xl leading-none">
-          GoonerShop
+          Healthshop
         </h1>
         <p className="mt-6 text-xl text-gray-400 max-w-xl mx-auto leading-relaxed font-light">
           Entdecke unsere Produkte in einer einzigartigen Shopping-Erfahrung.

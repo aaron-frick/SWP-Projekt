@@ -33,7 +33,7 @@ export default function ImpressumPage() {
             Angaben gemäß § 5 ECG
           </h2>
           <div className="space-y-1 text-sm text-gray-700">
-            <p className="font-semibold text-gray-900">GoonerShop</p>
+            <p className="font-semibold text-gray-900">Healthshop</p>
             <p>Musterstraße 1</p>
             <p>6850 Dornbirn</p>
             <p>Österreich</p>
