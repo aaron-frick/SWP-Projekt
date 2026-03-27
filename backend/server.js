@@ -5,6 +5,7 @@ import { createProductsApi } from "./lib/directus/products.js";
 
 const app = express();
 const port = Number(process.env.PORT) || 4000;
+const adminSecret = process.env.ADMIN_SECRET || null;
 const directusUrl = process.env.DIRECTUS_URL || "";
 const directusToken = process.env.DIRECTUS_TOKEN || null;
 
@@ -15,7 +16,7 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Origin",
     process.env.CORS_ORIGIN || "*"
   );
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Content-Type, Authorization"
@@ -368,6 +369,59 @@ app.get("/api/products/:slug", async (req, res) => {
   }
 
   res.json({ data: mapProduct(item) });
+});
+
+// ---------------------------------------------------------------
+// T-US-ADMIN-04-01/02: Produktstatus definieren & aggregieren
+// GET /api/admin/product-stats
+// Liefert Produktanzahlen nach Status aus Directus.
+// Zugriff nur mit X-Admin-Token Header (aus ADMIN_SECRET env var).
+// ---------------------------------------------------------------
+app.get("/api/admin/product-stats", async (req, res) => {
+  const secret = adminSecret;
+  if (secret && req.headers["x-admin-token"] !== secret) {
+    res.status(401).json({ error: { type: "unauthorized", message: "Unauthorized.", status: 401 } });
+    return;
+  }
+
+  // Alle Produkte ohne Publish-Filter abrufen (Admin sieht alle Status)
+  const result = await productsApi.listProducts({
+    fields: "id,status,availability",
+    limit: -1,
+  });
+
+  if (!result.ok) {
+    sendError(res, result.error);
+    return;
+  }
+
+  const products = result.data;
+  const total = products.length;
+
+  // Status-Aggregation (T-US-ADMIN-04-01: aktiv/inaktiv/published)
+  const byStatus = products.reduce((acc, p) => {
+    const s = p.status ?? "unknown";
+    acc[s] = (acc[s] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  // Verfügbarkeits-Aggregation
+  const byAvailability = products.reduce((acc, p) => {
+    const a = p.availability ?? "unknown";
+    acc[a] = (acc[a] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  res.json({
+    data: {
+      total,
+      published: byStatus["published"] ?? 0,
+      draft: byStatus["draft"] ?? 0,
+      archived: byStatus["archived"] ?? 0,
+      byStatus,
+      byAvailability,
+    },
+  });
 });
 
 app.listen(port, () => {

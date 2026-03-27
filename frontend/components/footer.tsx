@@ -31,6 +31,12 @@ export function Footer() {
             >
               Datenschutz
             </Link>
+            <Link
+              href="/admin/login"
+              className="text-xs text-gray-400 hover:text-indigo-600 transition-colors"
+            >
+              Admin
+            </Link>
           </nav>
         </div>
       </div>
